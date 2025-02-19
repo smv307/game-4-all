@@ -37,7 +37,7 @@ class InputBox {
             this.setKeys.add(event.key.toLowerCase().charCodeAt());
         } else {
             if(event.key == "Alt") this.setKeys.add(130);
-            if(event.key == "Ctrl") this.setKeys.add(128);
+            if(event.key == "Control") this.setKeys.add(128);
             if(event.key == "Meta") this.setKeys.add(135);
             if(event.key == "Shift") this.setKeys.add(129);
             if(event.key == "Tab") this.setKeys.add(9);
