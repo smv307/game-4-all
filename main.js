@@ -33,7 +33,7 @@ class InputBox {
         console.log(event.key);
         this.pressedKeys.add(event.key);
         // this.setKeys.add(event.key.toLowerCase().charCodeAt());
-        if (!["Alt", "Ctrl", "Meta", "Shift", "Tab", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) {
+        if (!["Alt", "Ctrl", "Meta", "Shift", "Tab", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "F12", "F11", "F10", "F9", "F8", "F7", "F6", "F5", "F4", "F3", "F2", "F1", "Escape"].includes(event.key)) {
             this.setKeys.add(event.key.toLowerCase().charCodeAt());
         } else {
             if(event.key == "Alt") this.setKeys.add(130);
@@ -45,6 +45,19 @@ class InputBox {
             if(event.key == "ArrowRight") this.setKeys.add(215);
             if(event.key == "ArrowUp") this.setKeys.add(218);
             if(event.key == "ArrowDown") this.setKeys.add(217);
+            if(event.key == "F12") this.setKeys.add(205);
+            if(event.key == "F11") this.setKeys.add(204);
+            if(event.key == "F10") this.setKeys.add(203);
+            if(event.key == "F9") this.setKeys.add(202);
+            if(event.key == "F8") this.setKeys.add(201);
+            if(event.key == "F7") this.setKeys.add(200);
+            if(event.key == "F6") this.setKeys.add(199);
+            if(event.key == "F5") this.setKeys.add(198);
+            if(event.key == "F4") this.setKeys.add(197);
+            if(event.key == "F3") this.setKeys.add(196);
+            if(event.key == "F2") this.setKeys.add(195);
+            if(event.key == "F1") this.setKeys.add(194);
+            if(event.key == "Escape") this.setKeys.add(193);
         }
         this.box.textContent = formatShortcut(this.pressedKeys);
     }
@@ -112,13 +125,47 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 port.onReceiveError = error => {
                     console.error(error);
+                    alert("Error: " + error + ". There was an error. Please ensure that this website is not open on any other tabs, then reload the page and try again.");
                 };
                 resolve();
             }, error => {
-                console.log(error);
+                // console.log(error);
+                alert("Error: " + error + ". There was an error. Please ensure that this website is not open on any other tabs, then reload the page and try again.");
                 reject();
             });
         })
+    }
+
+    function saveToMCU(sendString) {
+
+        // console.log(button1.returnKeys());
+
+        console.log(sendString);
+
+        let textEncoder = new TextEncoder();
+
+        if (port) {
+            port.send(textEncoder.encode(sendString)).catch(error => {
+                console.log('Send error: ' + error);
+                alert("Send error: " + error + ". There was an error. Please ensure that this website is not open on any other tabs, then reload the page and try again.");
+            }).then(() => {
+                alert("Success!");
+            });
+        } else {
+            serial.requestPort().then(selectedPort => {
+                port = selectedPort;
+                // connect();
+                connect().then(() => {
+                    port.send(textEncoder.encode(sendString)).catch(error => {
+                        console.log('Send error: ' + error);
+                        alert("Send error: " + error + ". There was an error. Please ensure that this website is not open on any other tabs, then reload the page and try again.");
+
+                    }).then(() => {
+                        alert("Success!");
+                    });;
+                });
+            });
+        }
     }
 
     saveButton = document.getElementById("save");
@@ -134,30 +181,20 @@ document.addEventListener("DOMContentLoaded", () => {
             4: Array.from(button4.returnKeys())
         });
 
-        console.log(button1.returnKeys());
-
-        console.log(sendString);
-
-        let textEncoder = new TextEncoder();
-
-        if (port) {
-            port.send(textEncoder.encode(sendString)).catch(error => {
-                console.log('Send error: ' + error);
-            });
-        } else {
-            serial.requestPort().then(selectedPort => {
-                port = selectedPort;
-                // connect();
-                connect().then(() => {
-                    port.send(textEncoder.encode(sendString)).catch(error => {
-                        console.log('Send error: ' + error);
-                    });
-                });
-            });
-        }
-
-
+        saveToMCU(sendString);
     });
+
+    resetButton = document.getElementById("reset");
+    resetButton.addEventListener("click", () => {
+        sendString = JSON.stringify({
+            1: [49],
+            2: [50],
+            3: [51],
+            4: [52]
+        });
+
+        saveToMCU(sendString);
+    })
 
     // document.getElementById("connect").addEventListener("click", ()=> {
     //     serial.requestPort().then(selectedPort => {
@@ -167,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //     });
 
     // })
+    window.saveToMCU = saveToMCU;
 });
 
 window.addEventListener("keydown", (event) => {
