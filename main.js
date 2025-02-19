@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 port.onReceive = data => {
                     let textDecoder = new TextDecoder();
                     console.log(textDecoder.decode(data));
+                    alert(textDecoder.decode(data));
                 }
                 port.onReceiveError = error => {
                     console.error(error);
@@ -149,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log('Send error: ' + error);
                 alert("Send error: " + error + ". There was an error. Please ensure that this website is not open on any other tabs, then reload the page and try again.");
             }).then(() => {
-                alert("Success!");
+                // alert("Success!");
             });
         } else {
             serial.requestPort().then(selectedPort => {
@@ -161,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         alert("Send error: " + error + ". There was an error. Please ensure that this website is not open on any other tabs, then reload the page and try again.");
 
                     }).then(() => {
-                        alert("Success!");
+                        // alert("Success!");
                     });;
                 });
             });
