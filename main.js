@@ -33,7 +33,7 @@ class InputBox {
         console.log(event.key);
         this.pressedKeys.add(event.key);
         // this.setKeys.add(event.key.toLowerCase().charCodeAt());
-        if (!["Alt", "Ctrl", "Meta", "Shift", "Tab", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "F12", "F11", "F10", "F9", "F8", "F7", "F6", "F5", "F4", "F3", "F2", "F1", "Escape"].includes(event.key)) {
+        if (!["Alt", "Ctrl", "Meta", "Shift", "Tab", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "F12", "F11", "F10", "F9", "F8", "F7", "F6", "F5", "F4", "F3", "F2", "F1", "Escape", "Backspace"].includes(event.key)) {
             this.setKeys.add(event.key.toLowerCase().charCodeAt());
         } else {
             if(event.key == "Alt") this.setKeys.add(130);
@@ -58,6 +58,7 @@ class InputBox {
             if(event.key == "F2") this.setKeys.add(195);
             if(event.key == "F1") this.setKeys.add(194);
             if(event.key == "Escape") this.setKeys.add(193);
+            if(event.key == "Backspace") this.setKeys.add(178);
         }
         this.box.textContent = formatShortcut(this.pressedKeys);
     }
