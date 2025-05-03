@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>games4all</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <script>
+      // wait for the DOM to load
+      document.addEventListener("DOMContentLoaded", () => {
+        // get the script URL from the query parameter
+        const params = new URLSearchParams(window.location.search);
+        const url = params.get("script");
+
+        if (url) {
+          const script = document.createElement("script");
+          script.src = url;
+          script.async = true;
+          document.body.appendChild(script); // add the game script to the body
+        } else {
+          console.error("error: game script failed to load");
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <!-- game here -->
+  </body>
+</html>
