@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import gameData from "./gameData.json";
 
-// thumbnail for each game
+
 function GameCard({ game }) {
   const navigate = useNavigate();
 
   // clicking on a thumbnail will open the game in a new page
-  const toGamePage = () => {
+  const goToGamePage = () => {
     navigate(`/play?title=${encodeURIComponent(game.title)}`);
   };
 
+  // thumbnail for each game
   return (
-    <div className="game-card" onClick={toGamePage}>
+    <div className="game-card" onClick={goToGamePage}>
       <img src={game.img} alt={game.title} className="game-thumbnail" />
     </div>
   );
@@ -27,12 +28,13 @@ function GameGrid({ playerCount }) {
   return (
     <div className="grid-container" id="game-grid">
       {filteredGames.map((game, index) => (
-        <GameCard key={index} game={game} />
+        <GameCard key={index} game={game} /> // grid of game cards
       ))}
     </div>
   );
 }
 
+// add difficulty filter later, maybe???
 function Filters({ playerCount, setPlayerCount }) {
   return (
     <nav id="filters" className="subheader-font medium-font grey-font">
@@ -46,7 +48,7 @@ function Filters({ playerCount, setPlayerCount }) {
       />
       <label htmlFor="player-filter">
         <span id="player-filter-label">
-          {playerCount > 0 ? playerCount : "#"}
+          {playerCount > 0 ? playerCount : "#"} {/* display number sign if no filter */}
         </span>{" "}
         Players
       </label>

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
+// send email, create a new email address for this
 const Contact = () => {
   const form = useRef();
   const [submitted, setSubmitted] = useState(false);
@@ -21,7 +22,7 @@ const Contact = () => {
           form.current.reset();
         },
         (error) => {
-          console.error("could not send email", error);
+          console.error("could not send email uh oh", error);
         }
       );
   };
@@ -30,25 +31,44 @@ const Contact = () => {
     <main className="contact-form">
       <h3 className="red-font big-font subheader-font">Contact</h3>
       <hr></hr>
+      {/* when form submitted, display */}
       {submitted && (
         <p className="success-message">
-          Thank you! Your message has been sent.
+          Thank you! We will get back to you as soon as possible.
         </p>
       )}
-      <form className="green-font less-big-font subheader-font" ref={form} onSubmit={sendEmail}>
+      <form
+        className="green-font less-big-font subheader-font"
+        ref={form}
+        onSubmit={sendEmail}
+      >
         <label>
           name:
-          <input className="input-field short-answer" type="text" name="name" required />
+          <input
+            className="input-field short-answer"
+            type="text"
+            name="name"
+            required
+          />
         </label>
 
         <label>
           email:
-          <input className="input-field short-answer" type="email" name="email" required />
+          <input
+            className="input-field short-answer"
+            type="email"
+            name="email"
+            required
+          />
         </label>
 
         <label>
           message:
-          <textarea className="input-field long-answer" name="message" required />
+          <textarea
+            className="input-field long-answer"
+            name="message"
+            required
+          />
         </label>
 
         <button type="submit">SUBMIT</button>

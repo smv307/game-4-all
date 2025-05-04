@@ -7,13 +7,13 @@ const ErrorScreen = () => {
   useEffect(() => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const mobile =
-      /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
+      /android|iphone|ipad/i.test(
         userAgent.toLowerCase()
       );
     setIsMobile(mobile);
   }, []);
 
-  // if the device is not mobile, show website
+  // if the device is not mobile, show website normally
   if (!isMobile) return null;
 
   // if the device is mobile, show the error screen
