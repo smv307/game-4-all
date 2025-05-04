@@ -34,6 +34,10 @@ const Header = () => {
               <Link to="" className="nav-link">
                 SETTINGS
               </Link>
+              <br />
+              <Link to="/contact" className="nav-link">
+                CONTACT
+              </Link>
             </ul>
           </div>
         </nav>

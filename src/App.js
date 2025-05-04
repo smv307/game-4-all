@@ -9,6 +9,7 @@ import Setup from "./Pages/Setup.js";
 import About from "./Pages/About.js";
 import GamePage from "./Pages/GamePage.js";
 import ErrorScreen from "./Pages/ErrorScreen.js";
+import Contact from "./Pages/Contact.js";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/setup" element={<Setup />} />
         <Route path="/about" element={<About />} />
         <Route path="/play" element={<GamePage />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );

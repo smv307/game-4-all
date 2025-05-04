@@ -2,8 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div>
-      <main>
+      <main id="about-page">
         <section id="about-controller" className="nextdoor-parent centered">
           <figure className="nextdoor-child">
             <img src="./public/images/placeholder.jpg" alt="Placeholder" />
@@ -22,7 +21,6 @@ const About = () => {
           </article>
         </section>
       </main>
-    </div>
   );
 };
 

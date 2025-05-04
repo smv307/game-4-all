@@ -25,8 +25,8 @@ function GamePage() {
           {game.title}
         </p>
       </span>
-      <hr />
-      <section className="centered" style={{ width: "620px", height: "620px" }}>
+      <div id="game-bg-deco"></div>
+      <section className="centered" style={{ width: "620px", height: "620px"}}>
         <iframe
           id="game-frame"
           src={`/game.html?script=${encodeURIComponent(game.url)}`} // game.html in the frame

@@ -7,7 +7,6 @@ const SetupStep = ({ stepNumber, text, imageSrc, textStyle }) => (
       className="nextdoor-child"
       src={imageSrc}
       alt={`Step ${stepNumber}`}
-      style={{ width: 200, height: 400 }}
     />
     <p className={`${textStyle} nextdoor-child big-font paragraph-font`}>
       {stepNumber}. {text}

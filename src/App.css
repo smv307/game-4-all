@@ -168,14 +168,11 @@ header h1 {
   position: relative;
   display: block;
 }
-.dropdown-content ul {
-  padding: 20px;
-}
 
 .dropdown-content div {
   height: 100%;
   margin-left: var(--small);
-  padding: 1rem 90px 0 var(--small);
+  padding: 1rem 90px 0 0;
   border-left: 0.3rem solid var(--green); /* green line */
 }
 
@@ -235,20 +232,34 @@ header h1 {
   margin-top: 60px;
 }
 .instruction {
-  padding: var(--med) var(--large);
-  gap: var(--large);
-  font-weight: 650;
+  gap: 100px;
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--beige);
+  border: px solid var(--darkbeige);
 }
 
 .instruction img {
-  width: 100%;
-  border-radius: 30px;
-  border: 0.6rem solid var(--green);
+  max-width: 500px;
+  max-height: 600px;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  border: 5px solid var(--darkbeige);
 }
+
+.instruction p {
+  font-weight: bold;
+  text-align: left;
+  margin: 0;
+}
+
 /* ------------- ABOUT STYLES ------------- */
+
+
 #about-controller {
-  margin: var(--med) var(--small);
-  gap: var(--med);
+  margin: 6%;
 }
 
 #about-controller img {
@@ -256,28 +267,134 @@ header h1 {
   height: auto;
 }
 
-/* ------------- GAME PAGE ------------- */
-#back-arrow {
-  top: 160px;
+/* ------------- CONTACT STYLES ------------- */
+
+
+.contact-form {
+  max-width: 600px;
+  margin: 70px auto;
+  padding: 20px;
+  background-color: var(--beige);
+  border-radius: 10px;
+  border: 5px solid var(--darkbeige);
+}
+
+.contact-form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-form hr {
+  margin: 20px 0;
+}
+
+.contact-form .success-message {
+  text-align: center;
+  color: var(--green);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+.input-field {
+  background-color: var(--darkbeige);
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--grey);
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+.short-answer {
+  width: 70%;
+}
+
+.long-answer {
+  width: 97%;
+  height: 150px;
+  resize: none;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--beige);
+  background-color: var(--green);
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  margin: 40px 10px 0 40px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--blue);
+}
+
+
+/* ------------- GAME PAGE ------------- */
+
+#game-page {
+  margin: 100px auto;
+  padding-top: 50px ;
+  max-width: 900px;
+  height: 900px;
+  background-color: var(--beige);
+  border-radius: 10px;
+  border: 5px solid var(--darkbeige);
+}
+
+#back-arrow {
+  position: absolute;
+  top: 140px;
+  left: 40px;
+  cursor: pointer;
 }
 
 #back-arrow img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
 }
 
-#game-page hr {
-  margin-inline: 30%;
+#back-arrow img:hover {
+  transform: scale(1.1);
+}
+
+#game-bg-deco {
+  position: absolute;
+  top: 500px;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background-color: var(--grey);
+  z-index: -1;
 }
 
 #game-frame {
-  margin: 70px 0px;
-  padding: 0px;
-  width: 100%;
-  height: 100%;
-  border: 0.3rem solid var(--green);
+  margin: 40px auto;
+  width: 620px;
+  height: 620px;
+  border: 0px;
 }
 
 /* ------------- ERROR STYLES ------------- */
