@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/game-4-all/static/css/main.d6fb0589.css",
+    "main.js": "/game-4-all/static/js/main.4463ee1a.js",
+    "static/js/453.bdea2fe4.chunk.js": "/game-4-all/static/js/453.bdea2fe4.chunk.js",
+    "index.html": "/game-4-all/index.html",
+    "main.d6fb0589.css.map": "/game-4-all/static/css/main.d6fb0589.css.map",
+    "main.4463ee1a.js.map": "/game-4-all/static/js/main.4463ee1a.js.map",
+    "453.bdea2fe4.chunk.js.map": "/game-4-all/static/js/453.bdea2fe4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6fb0589.css",
+    "static/js/main.4463ee1a.js"
+  ]
+}
