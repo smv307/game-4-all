@@ -10,6 +10,7 @@ import About from "./Pages/About.js";
 import GamePage from "./Pages/GamePage.js";
 import ErrorScreen from "./Pages/ErrorScreen.js";
 import Contact from "./Pages/Contact.js";
+import Settings from "./Pages/Settings.js";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/play" element={<GamePage />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </Router>
   );

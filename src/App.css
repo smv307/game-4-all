@@ -442,4 +442,10 @@ header h1 {
     text-align: center;
     font-size: var(--medium-small-font);
   }
+
+  .contact-form {
+    padding-inline: 50px;
+    margin-block: 20px;
+    border: 0;
+  }
 }
